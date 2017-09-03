@@ -149,13 +149,13 @@ public class acoes {
 
 			switch (formaGeometrica) {
 			case "retangulo":
-				g2d.fillRect(anguloX, anguloY, dimensaoX, dimensaoY);
+				g2d.fillRect(anguloX-(dimensaoX/2), anguloY-(dimensaoY/2), dimensaoX, dimensaoY);
 				break;
 			case "arco":
-				g2d.fillArc(anguloX, anguloY, dimensaoX, dimensaoY, grauInicio, grauFim);
+				g2d.fillArc(anguloX-(dimensaoX/2), anguloY-(dimensaoY/2), dimensaoX, dimensaoY, grauInicio, grauFim);
 				break;
 			case "circulo":
-				g2d.fillOval(anguloX, anguloY, dimensaoX, dimensaoY);
+				g2d.fillOval(anguloX-(dimensaoX/2), anguloY-(dimensaoY/2), dimensaoX, dimensaoY);
 				break;
 
 			default:
