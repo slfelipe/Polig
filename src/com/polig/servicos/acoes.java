@@ -1,6 +1,7 @@
 package com.polig.servicos;
 
 import java.awt.Color;
+import java.awt.GradientPaint;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.event.MouseEvent;
@@ -22,6 +23,8 @@ public class acoes {
 	static int dimensaoY;
 	static int grauInicio = 0;
 	static int grauFim = 0;
+	
+	static String degradeSelected = "não";
 
 	static RenderingHints rh = new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
@@ -142,10 +145,22 @@ public class acoes {
 			rh.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
 			Graphics2D g2d = (Graphics2D) Componentes.panel.getGraphics();
 
+			switch (degradeSelected){
+			case "sim":
+				
+				Color color1 = new Color(corA, corB, corC);
+				GradientPaint gfx = new GradientPaint(10, 20, color1, 40, 30, Color.white, true);
+				g2d.setPaint(gfx);
+				break;
+				
+			default:
+				
+				
+				g2d.setColor(new Color(corA, corB, corC));
+					break;
+			}
+			
 			g2d.addRenderingHints(rh);
-
-			// CORES de 0 a 255
-			g2d.setColor(new Color(corA, corB, corC));
 
 			switch (formaGeometrica) {
 			case "retangulo":
@@ -238,6 +253,13 @@ public class acoes {
 			} else {
 				JOptionPane.showMessageDialog(null, "Escolha uma cor");
 			}
+			
+			if (Componentes.degrade.isSelected()){
+				degradeSelected = "sim";
+			}else{
+				degradeSelected = "nao";
+			}
+			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Erro ao Definir Cor");
 		}

@@ -38,6 +38,8 @@ public class Componentes {
 	public static JToggleButton white = new JToggleButton();
 	public static JToggleButton yellow = new JToggleButton();
 	
+	public static JToggleButton degrade = new JToggleButton("Degradê");
+	
 	public static JLabel lLargura = new JLabel("Largura:");
 	public static JLabel lAltura = new JLabel("Altura:");
 	public static JLabel lInicio = new JLabel("°Início:");
@@ -225,6 +227,10 @@ public class Componentes {
 		 yellow.setBackground(Color.yellow);
 		 framePrincipal.add(yellow);
 		 yellow.setName("yellow");
+		 
+		 degrade.setVisible(true);
+		 degrade.setBounds(600, 400, 100, 20);
+		 framePrincipal.add(degrade);
 		 
 	}		
 	}
